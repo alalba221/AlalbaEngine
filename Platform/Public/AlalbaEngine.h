@@ -17,6 +17,10 @@
 #include <deque>
 #include <set>
 #include <unordered_map>
+#include <unordered_set>
+#include <optional>
+
+#define ARRAY_SIZE(r) (sizeof(r)/sizeof(r[0]))
 
 #ifdef ALALBA_ENGINE_PLATFORM_WIN32
 //Windows

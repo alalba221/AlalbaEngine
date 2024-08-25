@@ -10,6 +10,19 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
+# debug 0r release
+if (CMAKE_BUILD_TYPE MATCHES Debug)
+    message(" ")
+    message("CMAKE IN DEBUG MODE")
+    add_compile_definitions(ALALBA_DEBUG)
+    message(" ")
+elseif(CMAKE_BUILD_TYPE MATCHES Release)
+    message(" ")
+    message("CMAKE IN RELEASE MODE")
+    add_compile_definitions(ALALBA_RELEASE)
+    message(" ")
+endif ()
+
 #resource dir configuration
 add_definitions(-DALALBA_DEFINE_RES_ROOT_DIR=\"${CMAKE_SOURCE_DIR}/Resource/\")
 set(ALALBA_DEFINE_RES_ROOT_DIR "${CMAKE_SOURCE_DIR}/Resource/")

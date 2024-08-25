@@ -11,13 +11,15 @@ namespace Alalba
         AlalbaGLFWindow() = delete;
         AlalbaGLFWindow(uint32_t width, uint32_t height, const char* title);
         virtual ~AlalbaGLFWindow() override;
-    private:
-        GLFWwindow* m_GLFWwindow;
 
-    public:
+
         void SwapBuffers() override;
         void PollEvents() override;
         bool ShouldClose() override;
+        GLFWwindow *GetWindowHandle() const { return m_GLFWwindow; }
+
+    private:
+        GLFWwindow* m_GLFWwindow;
     };
 }
 #endif //ALALBAGLFWINDOW_H

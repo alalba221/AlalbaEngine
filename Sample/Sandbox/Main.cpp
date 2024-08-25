@@ -1,6 +1,7 @@
 #include <iostream>
 #include "AlalbaLog.h"
 #include "AlalbaWindow.h"
+#include "AlalbaGFXContext.h"
 int main()
 {
     std::cout << "Hello Alalba engine." << std::endl;
@@ -10,7 +11,9 @@ int main()
     LOG_W("hello spdlog: {0},{1},{3}",__FUNCTION__, 1,0.14f,true);
     LOG_D("hello spdlog: {0},{1},{3}",__FUNCTION__, 1,0.14f,true);
 
+
     std::unique_ptr<Alalba::AlalbaWindow> window = Alalba::AlalbaWindow::Create(800,600,"Sandbox");
+    std::unique_ptr<Alalba::AlalbaGFXContext> gfx_context = Alalba::AlalbaGFXContext::Create(window.get());
     while(!window->ShouldClose())
     {
         window->PollEvents();
